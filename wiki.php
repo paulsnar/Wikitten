@@ -331,7 +331,7 @@ class Wiki
     public function indexAction()
     {
         $request = parse_url($_SERVER['REQUEST_URI']);
-        $page = str_replace("###" . APP_DIR . "/", "", "###" . urldecode($request['path']));
+        $page = str_replace("###" . APP_DIR . "/", "", "###" . rawurldecode($request['path']));
 
         if (!$page) {
             if (file_exists(LIBRARY . DIRECTORY_SEPARATOR . DEFAULT_FILE)) {
